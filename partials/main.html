@@ -1,0 +1,31 @@
+<ul class>
+    <li ng-repeat ="message in messages">{{message.text}}</li>
+</ul>
+<div ng-if="!isGrid">
+    <label> Set Grid size:
+        <input type="text" ng-model="gridSize.x"  size="10"
+                 placeholder="X grid size">
+        <input type="text" ng-model="gridSize.y"  size="10"
+                 placeholder="Y grid size">
+    </label>
+    <button class="btn-primary" ng-click="setGrid()">Set</button>
+</div>
+<div ng-if="isGrid">
+    <div>The grid size is X-coordinate:{{gridSize.x}} / Y- coordiate:{{gridSize.y}}</div>
+    <form ng-submit="addCommand()">
+        <label> Type start point :
+        <input type="text" ng-model="startPoint.x"  size="10"
+                 placeholder="x start">
+        <input type="text" ng-model="startPoint.y"  size="10"
+                 placeholder="y start">
+        <input type="text" ng-model="startPoint.dir"  size="10"
+                 placeholder="direction">
+        </label>
+        <label>  / Command :
+        <input type="text" ng-model="startPoint.command"  size="30"
+                 placeholder="add new command here">
+        </label>
+          <input class="btn-primary" type="submit" value="Send">
+    </form>
+</div>
+<div ng-if="info_msg">{{info_msg}}</div>
